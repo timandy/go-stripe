@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	assert "github.com/stretchr/testify/require"
-	_ "github.com/stripe/stripe-go/v72/testing"
+	_ "github.com/timandy/go-stripe/v72/testing"
 )
 
 func TestDiscountDel(t *testing.T) {

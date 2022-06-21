@@ -1,4 +1,4 @@
-module github.com/stripe/stripe-go/v72
+module github.com/timandy/go-stripe/v72
 
 go 1.13
 

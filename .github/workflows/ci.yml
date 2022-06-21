@@ -78,7 +78,7 @@ jobs:
            go-version: 1.10
        - name: Compile
          run: MAJOR_VERSION="v$(awk 'BEGIN {FS="."};{print $1}' < VERSION)" &&
-              DIR="$HOME/go/src/github.com/stripe/stripe-go" &&
+              DIR="$HOME/go/src/github.com/timandy/go-stripe" &&
               echo "dir=$DIR;major_version=$MAJOR_VERSION" &&
               mkdir -p $DIR &&
               cp -r ./ $DIR/$MAJOR_VERSION &&

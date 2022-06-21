@@ -31,9 +31,9 @@ MAJOR_VERSION := $(shell echo $(VERSION) | sed 's/\..*//')
 update-version:
 	@echo "$(VERSION)" > VERSION
 	@perl -pi -e 's|const clientversion = "[.\d\-\w]+"|const clientversion = "$(VERSION)"|' stripe.go
-	@perl -pi -e 's|github.com/stripe/stripe-go/v\d+|github.com/stripe/stripe-go/v$(MAJOR_VERSION)|' README.md
-	@perl -pi -e 's|github.com/stripe/stripe-go/v\d+|github.com/stripe/stripe-go/v$(MAJOR_VERSION)|' go.mod
-	@find . -name '*.go' -exec perl -pi -e 's|github.com/stripe/stripe-go/v\d+|github.com/stripe/stripe-go/v$(MAJOR_VERSION)|' {} +
+	@perl -pi -e 's|github.com/timandy/go-stripe/v\d+|github.com/timandy/go-stripe/v$(MAJOR_VERSION)|' README.md
+	@perl -pi -e 's|github.com/timandy/go-stripe/v\d+|github.com/timandy/go-stripe/v$(MAJOR_VERSION)|' go.mod
+	@find . -name '*.go' -exec perl -pi -e 's|github.com/timandy/go-stripe/v\d+|github.com/timandy/go-stripe/v$(MAJOR_VERSION)|' {} +
 
 codegen-format:
 	go fmt ./...

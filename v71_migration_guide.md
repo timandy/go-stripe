@@ -8,8 +8,8 @@ The library now fully supports [Go Modules](https://github.com/golang/go/wiki/Mo
 
 ``` go
 import (
-    "github.com/stripe/stripe-go"
-    "github.com/stripe/stripe-go/customer"
+    "github.com/timandy/go-stripe"
+    "github.com/timandy/go-stripe/customer"
 )
 ```
 
@@ -17,8 +17,8 @@ Should now also include a major version:
 
 ``` go
 import (
-    "github.com/stripe/stripe-go/v71"
-    "github.com/stripe/stripe-go/v71/customer"
+    "github.com/timandy/go-stripe/v71"
+    "github.com/timandy/go-stripe/v71/customer"
 )
 ```
 

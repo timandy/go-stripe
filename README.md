@@ -17,8 +17,8 @@ Then, reference stripe-go in a Go program with `import`:
 
 ``` go
 import (
-	"github.com/stripe/stripe-go/v72"
-	"github.com/stripe/stripe-go/v72/customer"
+	"github.com/timandy/go-stripe/v72"
+	"github.com/timandy/go-stripe/v72/customer"
 )
 ```
 
@@ -28,7 +28,7 @@ toolchain will resolve and fetch the stripe-go module automatically.
 Alternatively, you can also explicitly `go get` the package into a project:
 
 ```bash
-go get -u github.com/stripe/stripe-go/v72
+go get -u github.com/timandy/go-stripe/v72
 ```
 
 ## Documentation
@@ -120,8 +120,8 @@ To use a key, pass it to `API`'s `Init` function:
 ```go
 
 import (
-	"github.com/stripe/stripe-go/v72"
-	"github.com/stripe/stripe-go/v72/client"
+"github.com/timandy/go-stripe/v72"
+"github.com/timandy/go-stripe/v72/client"
 )
 
 stripe := &client.API{}
@@ -136,31 +136,31 @@ available. Here's a sample handler:
 
 ```go
 import (
-	"fmt"
-	"net/http"
+"fmt"
+"net/http"
 
-	"google.golang.org/appengine"
-	"google.golang.org/appengine/urlfetch"
+"google.golang.org/appengine"
+"google.golang.org/appengine/urlfetch"
 
-	"github.com/stripe/stripe-go/v72"
-	"github.com/stripe/stripe-go/v72/client"
+"github.com/timandy/go-stripe/v72"
+"github.com/timandy/go-stripe/v72/client"
 )
 
 func handler(w http.ResponseWriter, r *http.Request) {
-	c := appengine.NewContext(r)
-	httpClient := urlfetch.Client(c)
+c := appengine.NewContext(r)
+httpClient := urlfetch.Client(c)
 
-	sc := stripeClient.New("sk_test_123", stripe.NewBackends(httpClient))
+sc := stripeClient.New("sk_test_123", stripe.NewBackends(httpClient))
 
-	params := &stripe.CustomerParams{
-		Description: stripe.String("Stripe Developer"),
-		Email:       stripe.String("gostripe@stripe.com"),
-	}
-	customer, err := sc.Customers.New(params)
-	if err != nil {
-		fmt.Fprintf(w, "Could not create customer: %v", err)
-	}
-	fmt.Fprintf(w, "Customer created: %v", customer.ID)
+params := &stripe.CustomerParams{
+Description: stripe.String("Stripe Developer"),
+Email:       stripe.String("gostripe@stripe.com"),
+}
+customer, err := sc.Customers.New(params)
+if err != nil {
+fmt.Fprintf(w, "Could not create customer: %v", err)
+}
+fmt.Fprintf(w, "Customer created: %v", customer.ID)
 }
 ```
 
@@ -177,8 +177,8 @@ client.
 
 ```go
 import (
-	"github.com/stripe/stripe-go/v72"
-	"github.com/stripe/stripe-go/v72/$resource$"
+"github.com/timandy/go-stripe/v72"
+"github.com/timandy/go-stripe/v72/$resource$"
 )
 
 // Setup
@@ -217,8 +217,8 @@ individual key.
 
 ```go
 import (
-	"github.com/stripe/stripe-go/v72"
-	"github.com/stripe/stripe-go/v72/client"
+"github.com/timandy/go-stripe/v72"
+"github.com/timandy/go-stripe/v72/client"
 )
 
 // Setup
@@ -289,18 +289,18 @@ with `MaxNetworkRetries`:
 
 ```go
 import (
-	"github.com/stripe/stripe-go/v72"
-	"github.com/stripe/stripe-go/v72/client"
+"github.com/timandy/go-stripe/v72"
+"github.com/timandy/go-stripe/v72/client"
 )
 
 config := &stripe.BackendConfig{
-    MaxNetworkRetries: stripe.Int64(0), // Zero retries
+MaxNetworkRetries: stripe.Int64(0), // Zero retries
 }
 
 sc := &client.API{}
 sc.Init("sk_key", &stripe.Backends{
-    API:     stripe.GetBackendWithConfig(stripe.APIBackend, config),
-    Uploads: stripe.GetBackendWithConfig(stripe.UploadsBackend, config),
+API:     stripe.GetBackendWithConfig(stripe.APIBackend, config),
+Uploads: stripe.GetBackendWithConfig(stripe.UploadsBackend, config),
 })
 
 coupon, err := sc.Coupons.New(...)

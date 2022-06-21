@@ -10,9 +10,9 @@ package session
 import (
 	"net/http"
 
-	stripe "github.com/stripe/stripe-go/v72"
-	"github.com/stripe/stripe-go/v72/form"
-	"github.com/stripe/stripe-go/v72/lineitem"
+	stripe "github.com/timandy/go-stripe/v72"
+	"github.com/timandy/go-stripe/v72/form"
+	"github.com/timandy/go-stripe/v72/lineitem"
 )
 
 // Client is used to invoke /checkout/sessions APIs.

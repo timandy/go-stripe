@@ -10,8 +10,8 @@ package paymentintent
 import (
 	"net/http"
 
-	stripe "github.com/stripe/stripe-go/v72"
-	"github.com/stripe/stripe-go/v72/form"
+	stripe "github.com/timandy/go-stripe/v72"
+	"github.com/timandy/go-stripe/v72/form"
 )
 
 // Client is used to invoke /payment_intents APIs.
