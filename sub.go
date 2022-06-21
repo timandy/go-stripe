@@ -469,7 +469,13 @@ type SubscriptionParams struct {
 	// Indicates if a plan's `trial_period_days` should be applied to the subscription. Setting `trial_end` per subscription is preferred, and this defaults to `false`. Setting this flag to `true` together with `trial_end` is not allowed. See [Using trial periods on subscriptions](https://stripe.com/docs/billing/subscriptions/trials) to learn more.
 	TrialFromPlan *bool `form:"trial_from_plan"`
 	// Integer representing the number of trial period days before the customer is charged for the first time. This will always overwrite any trials that might apply via a subscribed plan. See [Using trial periods on subscriptions](https://stripe.com/docs/billing/subscriptions/trials) to learn more.
-	TrialPeriodDays *int64 `form:"trial_period_days"`
+	TrialPeriodDays          *int64                       `form:"trial_period_days"`
+	EnableIncompletePayments *bool                        `form:"enable_incomplete_payments"`
+	InvoiceSettings          *SubscriptionInvoiceSettings `form:"invoice_settings"`
+}
+
+type SubscriptionInvoiceSettings struct {
+	SendHostedPaymentEmail bool `form:"send_hosted_payment_email"`
 }
 
 // AppendTo implements custom encoding logic for SubscriptionParams.
